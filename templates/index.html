@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>DB Normalizer</title>
+</head>
+<body class="bg-gray-900 text-white p-10">
+    <div class="max-w-2xl mx-auto">
+        <h1 class="text-3xl font-bold text-blue-400 mb-5">Database Normalizer Tool</h1>
+        <form action="/process" method="post" class="bg-gray-800 p-6 rounded-lg">
+            <label>Input CSV Data (ID, Name, Subjects):</label>
+            <textarea name="csv_data" class="w-full p-2 bg-gray-700 mt-2" rows="5">1,Anjana,"ICT,Maths"</textarea>
+            <button type="submit" class="bg-blue-600 px-5 py-2 mt-4 rounded">Normalize to 1NF</button>
+        </form>
+        {% if result %}
+        <div class="mt-10 p-5 bg-white text-black rounded">
+            <h2 class="font-bold mb-2">Normalized Table:</h2>
+            {{ result | safe }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
